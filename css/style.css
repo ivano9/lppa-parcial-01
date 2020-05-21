@@ -1,12 +1,11 @@
 @import url(https://fonts.googleapis.com/css?family=Kalam);
 
 body {
-   display: flex;;
+   display: flex;
    justify-content: center;
    background-color: grey;
    margin: 100px;
    color: white;
-   text-shadow: 2px 2px grey
 }
 
 .form {
@@ -17,11 +16,48 @@ body {
    border-radius: 15px;
 }
 
-label {
-
+input {
+    border: none;
+    outline: 0;
+    border-bottom: 2px solid #4f849c;
+    font-size: 1.4rem;
+    color: #ccc;
+    background-color: transparent;
 }
 
-input {
-   background-color: transparent;
+.label {
+   display: inline-block;
+   width: 70px;
+}
+
+.button {
+   display: inline-block;
+   padding: 15px 25px;
+   margin-top: 10px;
+   font-size: 24px;
+   cursor: pointer;
+   text-align: center;
+   text-decoration: none;
+   outline: none;
+   color: #fff;
+   background-color: brown;
    border: none;
+   border-radius: 15px;
+}
+
+.button:hover {
+   background-color: #7a0000
+}
+
+.subtitles {
+   font-size: larger;
+}
+
+textarea {
+  border: none;
+  outline: 0;
+  border-bottom: 2px solid #4f849c;
+  font-size: 1.4rem;
+  color: #ccc;
+  background-color: transparent;
 }

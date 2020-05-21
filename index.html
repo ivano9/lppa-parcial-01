@@ -11,25 +11,26 @@
    <body>
       <div class="form">
          <h1>Registro</h1>
+         <p class="displayErrors"></p>
          <form>
             <div>
-               <label for="name">Nombre:</label>
-               <input id="name" type="text" placeholder="Ingrese su nombre">
+               <label class="label" for="name">Nombre:</label>
+               <input id="name" type="text">
             </div>
             <div>
-               <label for="surname">Apellido:</label>
-               <input id="surname" type="text" placeholder="Ingrese su apellido">
+               <label class="label" for="surname">Apellido:</label>
+               <input id="surname" type="text">
             </div>
             <div>
-               <label for="email">Email:</label>
-               <input id="email" type="email" name="email" placeholder="Ingrese su email">
+               <label class="label" for="email">Email:</label>
+               <input id="email" type="email" name="email">
             </div>
             <div>
-               <label for="age">Edad:</label>
-               <input id="age" type="number" name="age" placeholder="Ingrese su edad">
+               <label class="label" for="age">Edad:</label>
+               <input id="age" type="number" name="age" placeholder=>
             </div>
             <div>
-               <p>Seleccione su genero:</p>
+               <p class="subtitles">Seleccione su genero:</p>
                <input type="radio" id="male" name="gender" value="male">
                <label for="male">Masculino</label><br>
                <input type="radio" id="female" name="gender" value="female">
@@ -38,7 +39,7 @@
                <label for="other">Otro</label>
             </div>
             <div>
-               <p>Temas de interés:</p>
+               <p class="subtitles">Temas de interés:</p>
                <label>
                   <input type="checkbox" id="music" value="music"> Música
                </label><br>
@@ -53,7 +54,7 @@
                </label><br>
             </div><br>
             <div>
-               <label for="country">País:</label>
+               <label class="subtitles" for="country">País:</label>
                <select name="country">
                   <option value="" selected>Seleccione un país</option>
                   <option value="ARG">Argentina</option>
@@ -63,7 +64,7 @@
                </select>
             </div>
             <div>
-               <p>Comentarios:</p>
+               <p class="subtitles">Comentarios:</p>
                <textarea name="comment" id="comment" cols="30" rows="5"></textarea>
             </div>
             <button class="button" type="submit" style="vertical-align:middle"><span>Enviar </span></button>
