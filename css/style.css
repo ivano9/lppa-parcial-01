@@ -1,0 +1,27 @@
+@import url(https://fonts.googleapis.com/css?family=Kalam);
+
+body {
+   display: flex;;
+   justify-content: center;
+   background-color: grey;
+   margin: 100px;
+   color: white;
+   text-shadow: 2px 2px grey
+}
+
+.form {
+   font-family: 'Kalam', cursive;
+   font-size: larger;
+   background: linear-gradient(to left, #8942a8, #ba382f);
+   padding: 2em;
+   border-radius: 15px;
+}
+
+label {
+
+}
+
+input {
+   background-color: transparent;
+   border: none;
+}
