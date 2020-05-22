@@ -4,11 +4,13 @@ body {
    display: flex;
    justify-content: center;
    background-color: grey;
-   margin: 100px;
    color: white;
+   padding: 10em;
 }
 
 .form {
+   display: flex;
+   flex-direction: column;
    font-family: 'Kalam', cursive;
    font-size: larger;
    background: linear-gradient(to left, #8942a8, #ba382f);
@@ -17,12 +19,12 @@ body {
 }
 
 input {
-    border: none;
-    outline: 0;
-    border-bottom: 2px solid #4f849c;
-    font-size: 1.4rem;
-    color: #ccc;
-    background-color: transparent;
+   border: none;
+   outline: 0;
+   border-bottom: 2px solid #4f849c;
+   font-size: 1.4rem;
+   color: #ccc;
+   background-color: transparent;
 }
 
 .label {
@@ -60,4 +62,64 @@ textarea {
   font-size: 1.4rem;
   color: #ccc;
   background-color: transparent;
+}
+
+@media (max-width: 450px) {
+   body {
+      padding: 10em 0 10em 0;
+   }
+
+   .form {
+      font-size: 18px;
+      border-radius: 0;
+   }
+
+   .label {
+      width: 50px;
+   }
+
+   input {
+      font-size: 18px;
+   }
+
+   textarea {
+      font-size: 18px;
+   }
+
+   .button {
+      font-size: 20px;
+   }
+
+   .subtitles {
+      font-size: 18px;
+   }
+}
+
+@media (max-width: 320px) {
+   body {
+      padding: 10em 0 10em 0;
+   }
+   .form {
+      display: inline-block;
+      font-size: medium;
+      border-radius: 0;
+   }
+   .label {
+      width: 50px;
+   }
+
+   input {
+      font-size: medium;
+   }
+   
+   textarea {
+      font-size: medium;
+   }
+
+   .button {
+      font-size: 20px;
+   }
+   .subtitles {
+      font-size: medium;
+   }
 }
