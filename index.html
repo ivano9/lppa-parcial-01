@@ -11,23 +11,26 @@
    <body>
       <div class="form">
          <h1>Registro</h1>
-         <p class="displayErrors"></p>
          <form id="form" action="">
             <div>
                <label class="label" for="name">Nombre:</label>
                <input id="name" type="text">
+               <p id="errorName" class="error"></p>
             </div>
             <div>
                <label class="label" for="surname">Apellido:</label>
                <input id="surname" type="text">
+               <p id="errorSurname" class="error"></p>
             </div>
             <div>
                <label class="label" for="email">Email:</label>
                <input id="email" type="email" name="email">
+               <p id="errorEmail" class="error"></p>
             </div>
             <div>
                <label class="label" for="age">Edad:</label>
-               <input id="age" type="number" name="age" placeholder=>
+               <input id="age" type="number" name="age">
+               <p id="errorAge" class="error"></p>
             </div>
             <div>
                <p class="subtitles">Seleccione su genero:</p>

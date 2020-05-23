@@ -8,6 +8,11 @@ body {
    padding: 10em;
 }
 
+.error {
+   color: black;
+   font-size: 1.4rem;
+}
+
 .form {
    display: flex;
    flex-direction: column;
@@ -73,6 +78,10 @@ textarea {
       font-size: 18px;
       border-radius: 0;
    }
+   
+   .error {
+      font-size: 18px;
+   }
 
    .label {
       width: 50px;
@@ -106,6 +115,10 @@ textarea {
    }
    .label {
       width: 50px;
+   }
+
+   .error {
+      font-size: medium;
    }
 
    input {
