@@ -41,7 +41,7 @@ const checkEmail = function () {
 
 const checkAge = function () {
    var { value } = document.getElementById('age')
-   
+
    var result = (value - Math.floor(value)) !== 0
 
    if (result) 
@@ -66,7 +66,14 @@ const errorBuilder = function () {
    var errorAge = document.getElementById('errorAge')
    errorAge.innerHTML = warnStack.age
 
-   return;
+   var rs = warnStack.name.length + warnStack.surname.length + warnStack.email.length + warnStack.age.length
+
+   if (rs > 0) {
+      console.log(warnStack.name)
+      console.log(warnStack.surname)
+      console.log(warnStack.email)
+      console.log(warnStack.age)
+   }
 }
 
 const messageCleaner = function () {
@@ -85,13 +92,13 @@ const validator = function () {
    checkEmail()
    checkAge()
    errorBuilder()
-   return;
+   return
 }
 
 const events = function (e) {
    e.preventDefault()
    validator()
-   return;
+   return
 }
 
 const main = function () {
