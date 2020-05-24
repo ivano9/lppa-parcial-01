@@ -1,4 +1,4 @@
-'use strict' 
+'use strict'
 
 var warnStack = {
    name:    [],
@@ -7,26 +7,41 @@ var warnStack = {
    age:     []
 }
 
+var inputLog = {
+   name:     '',
+   surname:  '',
+   email:    '',
+   age:      '',
+   gender:   '',
+   topics:   '',
+   country:  '',
+   comment: ''
+}
+
 const checkName = function () {
    var { value } = document.getElementById('name')
    if (value === null || value === '' || value.length < 3)
       warnStack.name.push('El nombre debe tener al menos 3 letras')
+   else
+      inputLog.name = value
    
-   return;
+   return
 }
 
 const checkSurname = function () {
    var { value } = document.getElementById('surname')
    if (value === null || value === '' || value.length < 3)
       warnStack.surname.push('El apellido debe tener al menos 3 letras')
+   else
+      inputLog.surname = value
 
-   return;
+   return
 }
 
 const checkEmail = function () {
    var { value } = document.getElementById('email')
 
-   if (value.length < 5)
+   if (value.length < 5) 
       warnStack.email.push('El email debe tener al menos 5 caracteres')
    else {
       // regular expression for validate email
@@ -34,9 +49,11 @@ const checkEmail = function () {
 
       if (!re.test(value))
          warnStack.email.push('Email no valido')
+      else 
+         inputLog.email = value
    }
 
-   return;
+   return
 }
 
 const checkAge = function () {
@@ -44,13 +61,15 @@ const checkAge = function () {
 
    var result = (value - Math.floor(value)) !== 0
 
-   if (result) 
+   if (result)
       warnStack.age.push('La edad debe ser un numero entero')
    else
       if (value < 1 || value > 99)
          warnStack.age.push('La edad válida debe mayor a 0 y menor a 100')
+      else
+         inputLog.age = value
    
-   return;
+   return
 }
 
 const errorBuilder = function () {
@@ -69,11 +88,13 @@ const errorBuilder = function () {
    var rs = warnStack.name.length + warnStack.surname.length + warnStack.email.length + warnStack.age.length
 
    if (rs > 0) {
-      console.log(warnStack.name)
-      console.log(warnStack.surname)
-      console.log(warnStack.email)
-      console.log(warnStack.age)
-   }
+      var arr = Object.values(warnStack)
+      arr.forEach( function (el) {
+         if (el.length > 0)
+            console.error(el.join('. '))
+      })
+      return true
+   } else return false
 }
 
 const messageCleaner = function () {
@@ -82,7 +103,7 @@ const messageCleaner = function () {
    warnStack.email   = []
    warnStack.age     = []
 
-   return;
+   return
 }
 
 const validator = function () {
@@ -91,7 +112,38 @@ const validator = function () {
    checkSurname()
    checkEmail()
    checkAge()
-   errorBuilder()
+   
+   if (!errorBuilder()) {
+      var gender  = document.getElementsByName('gender')
+      var topics  = document.getElementsByName('topic')
+      var country = document.getElementById('country').value
+      var comment = document.getElementById('comment').value
+      
+      // gender
+      for (var i = 0; i < gender.length; i++) {
+         if (gender[i].checked)
+            inputLog.gender = gender[i].value
+      }
+
+      // topics
+      for (var i = 0, str = []; i < topics.length; i++) {
+         if (topics[i].checked)
+            str.push(topics[i].value)
+      }
+      
+      inputLog.topics = str.join(', ')
+
+      // country
+      inputLog.country = country
+
+      // commets
+
+      inputLog.comment = comment
+
+      console.log(inputLog)
+   }
+   
+   
    return
 }
 
@@ -104,7 +156,7 @@ const events = function (e) {
 const main = function () {
    var form = document.getElementById('form')
    form.addEventListener('submit', events)
-   return;
+   return
 }
 
 main()

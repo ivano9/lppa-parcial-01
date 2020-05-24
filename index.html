@@ -44,31 +44,31 @@
             <div>
                <p class="subtitles">Temas de interés:</p>
                <label>
-                  <input type="checkbox" id="music" value="music"> Música
+                  <input type="checkbox" name="topic" value="music"> Música
                </label><br>
                <label>
-                  <input type="checkbox" id="sport" value="sport"> Deporte
+                  <input type="checkbox" name="topic" value="sport"> Deporte
                </label><br>
                <label>
-                  <input type="checkbox" id="games" value="games"> Juegos
+                  <input type="checkbox" name="topic" value="games"> Juegos
                </label><br>
                <label>
-                  <input type="checkbox" id="tech" value="technologies"> Tecnología
+                  <input type="checkbox" name="topic" value="technologies"> Tecnología
                </label><br>
             </div><br>
             <div>
                <label class="subtitles" for="country">País:</label>
-               <select name="country">
+               <select id="country" name="country">
                   <option value="" selected>Seleccione un país</option>
-                  <option value="ARG">Argentina</option>
-                  <option value="CHI">Chile</option>
-                  <option value="BR">Brasil</option>
-                  <option value="URU">Uruguay</option>
+                  <option value="Argentina">Argentina</option>
+                  <option value="Chile">Chile</option>
+                  <option value="Brasil">Brasil</option>
+                  <option value="Uruguay">Uruguay</option>
                </select>
             </div>
             <div>
                <p class="subtitles">Comentarios:</p>
-               <textarea name="comment" id="comment" cols="30" rows="5"></textarea>
+               <textarea id="comment" name="comment" cols="30" rows="5"></textarea>
             </div>
             <button class="button" type="submit">Enviar</button>
          </form>
