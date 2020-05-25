@@ -15,21 +15,25 @@ var inputLog = {
    gender:   '',
    topics:   '',
    country:  '',
-   comment: ''
+   comment:  ''
 }
 
-const checkName = function () {
-   var { value } = document.getElementById('name')
+var checkName = function () {
+   var {
+      value
+   } = document.getElementById('name')
    if (value === null || value === '' || value.length < 3)
       warnStack.name.push('El nombre debe tener al menos 3 letras')
    else
       inputLog.name = value
-   
+
    return
 }
 
-const checkSurname = function () {
-   var { value } = document.getElementById('surname')
+var checkSurname = function () {
+   var {
+      value
+   } = document.getElementById('surname')
    if (value === null || value === '' || value.length < 3)
       warnStack.surname.push('El apellido debe tener al menos 3 letras')
    else
@@ -38,7 +42,7 @@ const checkSurname = function () {
    return
 }
 
-const checkEmail = function () {
+var checkEmail = function () {
    var { value } = document.getElementById('email')
 
    if (value.length < 5) 
@@ -56,7 +60,7 @@ const checkEmail = function () {
    return
 }
 
-const checkAge = function () {
+var checkAge = function () {
    var { value } = document.getElementById('age')
 
    var result = (value - Math.floor(value)) !== 0
@@ -72,7 +76,7 @@ const checkAge = function () {
    return
 }
 
-const errorBuilder = function () {
+var errorBuilder = function () {
    var errorName = document.getElementById('errorName')
    errorName.innerHTML = warnStack.name
 
@@ -97,7 +101,38 @@ const errorBuilder = function () {
    } else return false
 }
 
-const messageCleaner = function () {
+var getGender = function () {
+   var gender = document.getElementsByName('gender')
+   for (var i = 0; i < gender.length; i++) {
+      if (gender[i].checked)
+         inputLog.gender = gender[i].value
+   }
+   return
+}
+
+var getTopics = function () {
+   var topics = document.getElementsByName('topic')
+   for (var i = 0, str = []; i < topics.length; i++) {
+      if (topics[i].checked)
+         str.push(topics[i].value)
+   }
+
+   inputLog.topics = str.join(', ')
+
+   return
+}
+
+var getCountry = function () {
+   var { value } = document.getElementById('country')
+   inputLog.country = value
+}
+
+var getComment = function () {
+   var { value } = document.getElementById('comment')
+   inputLog.comment = value
+}
+
+var messageCleaner = function () {
    warnStack.name    = []
    warnStack.surname = []
    warnStack.email   = []
@@ -106,7 +141,7 @@ const messageCleaner = function () {
    return
 }
 
-const validator = function () {
+var validator = function () {
    messageCleaner()
    checkName()
    checkSurname()
@@ -114,46 +149,24 @@ const validator = function () {
    checkAge()
    
    if (!errorBuilder()) {
-      var gender  = document.getElementsByName('gender')
-      var topics  = document.getElementsByName('topic')
-      var country = document.getElementById('country').value
-      var comment = document.getElementById('comment').value
-      
-      // gender
-      for (var i = 0; i < gender.length; i++) {
-         if (gender[i].checked)
-            inputLog.gender = gender[i].value
-      }
-
-      // topics
-      for (var i = 0, str = []; i < topics.length; i++) {
-         if (topics[i].checked)
-            str.push(topics[i].value)
-      }
-      
-      inputLog.topics = str.join(', ')
-
-      // country
-      inputLog.country = country
-
-      // commets
-
-      inputLog.comment = comment
+      getGender()
+      getTopics()
+      getCountry()
+      getComment()
 
       console.log(inputLog)
    }
-   
-   
+
    return
 }
 
-const events = function (e) {
+var events = function (e) {
    e.preventDefault()
    validator()
    return
 }
 
-const main = function () {
+var main = function () {
    var form = document.getElementById('form')
    form.addEventListener('submit', events)
    return
