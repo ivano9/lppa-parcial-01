@@ -125,11 +125,15 @@ var getTopics = function () {
 var getCountry = function () {
    var { value } = document.getElementById('country')
    inputLog.country = value
+
+   return
 }
 
 var getComment = function () {
    var { value } = document.getElementById('comment')
    inputLog.comment = value
+   
+   return
 }
 
 var messageCleaner = function () {
