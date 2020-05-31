@@ -19,59 +19,55 @@ var inputLog = {
 }
 
 var checkName = function () {
-   var {
-      value
-   } = document.getElementById('name')
-   if (value === null || value === '' || value.length < 3)
+   var name = document.getElementById('name').value
+   if (name === null || name === '' || name.length < 3)
       warnStack.name.push('El nombre debe tener al menos 3 letras')
    else
-      inputLog.name = value
+      inputLog.name = name
 
    return
 }
 
 var checkSurname = function () {
-   var {
-      value
-   } = document.getElementById('surname')
-   if (value === null || value === '' || value.length < 3)
+   var surname = document.getElementById('surname').value
+   if (surname === null || surname === '' || surname.length < 3)
       warnStack.surname.push('El apellido debe tener al menos 3 letras')
    else
-      inputLog.surname = value
+      inputLog.surname = surname
 
    return
 }
 
 var checkEmail = function () {
-   var { value } = document.getElementById('email')
+   var email = document.getElementById('email').value
 
-   if (value.length < 5) 
+   if (email.length < 5) 
       warnStack.email.push('El email debe tener al menos 5 caracteres')
    else {
       // regular expression for validate email
       var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-      if (!re.test(value))
+      if (!re.test(email))
          warnStack.email.push('Email no valido')
       else 
-         inputLog.email = value
+         inputLog.email = email
    }
 
    return
 }
 
 var checkAge = function () {
-   var { value } = document.getElementById('age')
+   var age = document.getElementById('age').value
 
-   var result = (value - Math.floor(value)) !== 0
+   var result = (age - Math.floor(age)) !== 0
 
    if (result)
       warnStack.age.push('La edad debe ser un numero entero')
    else
-      if (value < 1 || value > 99)
+      if (age < 1 || age > 99)
          warnStack.age.push('La edad válida debe mayor a 0 y menor a 100')
       else
-         inputLog.age = value
+         inputLog.age = age
    
    return
 }
@@ -123,15 +119,15 @@ var getTopics = function () {
 }
 
 var getCountry = function () {
-   var { value } = document.getElementById('country')
-   inputLog.country = value
+   var country = document.getElementById('country').value
+   inputLog.country = country
 
    return
 }
 
 var getComment = function () {
-   var { value } = document.getElementById('comment')
-   inputLog.comment = value
+   var comment = document.getElementById('comment').value
+   inputLog.comment = comment
    
    return
 }
